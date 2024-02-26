@@ -134,7 +134,7 @@ extras_require_xbr = [
     # the following is needed (at least) for BIP32/39 mnemonic processing
     'mnemonic>=0.19',           # MIT license (https://github.com/trezor/python-mnemonic)
     'base58>=2.1.0',            # MIT license (https://github.com/keis/base58)
-    'ecdsa>=0.16.1',            # MIT license (https://github.com/warner/python-ecdsa)
+#    'ecdsa>=0.16.1',            # MIT license (https://github.com/warner/python-ecdsa)
     'py-multihash>=2.0.1',      # MIT license (https://github.com/multiformats/py-multihash / https://pypi.org/project/py-multihash/)
 
     # the following is needed for the WAMP/XBR IDL code generator
