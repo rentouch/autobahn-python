@@ -52,7 +52,7 @@ if 'XBR_DEBUG_TOKEN_ADDR' in os.environ:
     _token_adr = os.environ['XBR_DEBUG_TOKEN_ADDR']
     try:
         _token_adr = binascii.a2b_hex(_token_adr[2:])
-        _token_adr = web3.Web3.toChecksumAddress(_token_adr)
+        _token_adr = web3.Web3.to_checksum_address(_token_adr)
     except Exception as e:
         raise RuntimeError('could not parse Ethereum address for XBR_DEBUG_TOKEN_ADDR={} - {}'.format(_token_adr, e))
     XBR_DEBUG_TOKEN_ADDR = _token_adr
@@ -65,7 +65,7 @@ if 'XBR_DEBUG_NETWORK_ADDR' in os.environ:
     _netw_adr = os.environ['XBR_DEBUG_NETWORK_ADDR']
     try:
         _netw_adr = binascii.a2b_hex(_netw_adr[2:])
-        _netw_adr = web3.Web3.toChecksumAddress(_netw_adr)
+        _netw_adr = web3.Web3.to_checksum_address(_netw_adr)
     except Exception as e:
         raise RuntimeError('could not parse Ethereum address for XBR_DEBUG_NETWORK_ADDR={} - {}'.format(_netw_adr, e))
     XBR_DEBUG_NETWORK_ADDR = _netw_adr
@@ -78,7 +78,7 @@ if 'XBR_DEBUG_DOMAIN_ADDR' in os.environ:
     _domain_adr = os.environ['XBR_DEBUG_DOMAIN_ADDR']
     try:
         _domain_adr = binascii.a2b_hex(_domain_adr[2:])
-        _domain_adr = web3.Web3.toChecksumAddress(_domain_adr)
+        _domain_adr = web3.Web3.to_checksum_address(_domain_adr)
     except Exception as e:
         raise RuntimeError('could not parse Ethereum address for XBR_DEBUG_DOMAIN_ADDR={} - {}'.format(_domain_adr, e))
     XBR_DEBUG_DOMAIN_ADDR = _domain_adr
@@ -91,7 +91,7 @@ if 'XBR_DEBUG_CATALOG_ADDR' in os.environ:
     _ctlg_adr = os.environ['XBR_DEBUG_CATALOG_ADDR']
     try:
         _ctlg_adr = binascii.a2b_hex(_ctlg_adr[2:])
-        _ctlg_adr = web3.Web3.toChecksumAddress(_ctlg_adr)
+        _ctlg_adr = web3.Web3.to_checksum_address(_ctlg_adr)
     except Exception as e:
         raise RuntimeError('could not parse Ethereum address for XBR_DEBUG_CATALOG_ADDR={} - {}'.format(_ctlg_adr, e))
     XBR_DEBUG_CATALOG_ADDR = _ctlg_adr
@@ -104,7 +104,7 @@ if 'XBR_DEBUG_MARKET_ADDR' in os.environ:
     _mrkt_adr = os.environ['XBR_DEBUG_MARKET_ADDR']
     try:
         _mrkt_adr = binascii.a2b_hex(_mrkt_adr[2:])
-        _mrkt_adr = web3.Web3.toChecksumAddress(_mrkt_adr)
+        _mrkt_adr = web3.Web3.to_checksum_address(_mrkt_adr)
     except Exception as e:
         raise RuntimeError('could not parse Ethereum address for XBR_DEBUG_MARKET_ADDR={} - {}'.format(_mrkt_adr, e))
     XBR_DEBUG_MARKET_ADDR = _mrkt_adr
@@ -117,7 +117,7 @@ if 'XBR_DEBUG_CHANNEL_ADDR' in os.environ:
     _chnl_adr = os.environ['XBR_DEBUG_CHANNEL_ADDR']
     try:
         _chnl_adr = binascii.a2b_hex(_chnl_adr[2:])
-        _chnl_adr = web3.Web3.toChecksumAddress(_chnl_adr)
+        _chnl_adr = web3.Web3.to_checksum_address(_chnl_adr)
     except Exception as e:
         raise RuntimeError('could not parse Ethereum address for XBR_DEBUG_CHANNEL_ADDR={} - {}'.format(_chnl_adr, e))
     XBR_DEBUG_CHANNEL_ADDR = _chnl_adr

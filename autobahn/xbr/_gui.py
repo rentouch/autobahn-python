@@ -131,7 +131,7 @@ class ApplicationWindow(Gtk.Assistant):
         # start page depends on available user profile
         if self.profile:
             self.output_account = account_from_ethkey(self.profile.ethkey)
-            self.output_ethadr = web3.Web3.toChecksumAddress(self.output_account.address)
+            self.output_ethadr = web3.Web3.to_checksum_address(self.output_account.address)
             self.output_ethadr_raw = binascii.a2b_hex(self.output_ethadr[2:])
             info = yield self.session.get_status()
             if info:
@@ -353,7 +353,7 @@ class ApplicationWindow(Gtk.Assistant):
         @inlineCallbacks
         def on_button2_2(_):
             self.output_account = account_from_seedphrase(self.input_seedphrase, index=0)
-            self.output_ethadr = web3.Web3.toChecksumAddress(self.output_account.address)
+            self.output_ethadr = web3.Web3.to_checksum_address(self.output_account.address)
             self.output_ethadr_raw = binascii.a2b_hex(self.output_ethadr[2:])
 
             # https://eth-account.readthedocs.io/en/latest/eth_account.signers.html#eth_account.signers.local.LocalAccount.key
@@ -856,7 +856,7 @@ class ApplicationClient(Client):
             if is_member:
                 member_data = yield self.call('xbr.network.get_member_by_wallet', ethadr_raw)
 
-                member_data['address'] = web3.Web3.toChecksumAddress(member_data['address'])
+                member_data['address'] = web3.Web3.to_checksum_address(member_data['address'])
                 member_data['oid'] = uuid.UUID(bytes=member_data['oid'])
                 member_data['balance']['eth'] = web3.Web3.fromWei(unpack_uint256(member_data['balance']['eth']),
                                                                   'ether')

@@ -272,8 +272,8 @@ class TestEip712CertificateChain(TestCase):
         cert1_sig = yield delegate_eth_key.sign_typed_data(cert1_data, binary=False)
 
         cert1_data['message']['csPubKey'] = b2a_hex(cert1_data['message']['csPubKey']).decode()
-        cert1_data['message']['delegate'] = self._w3.toChecksumAddress(cert1_data['message']['delegate'])
-        cert1_data['message']['verifyingContract'] = self._w3.toChecksumAddress(
+        cert1_data['message']['delegate'] = self._w3.to_checksum_address(cert1_data['message']['delegate'])
+        cert1_data['message']['verifyingContract'] = self._w3.to_checksum_address(
             cert1_data['message']['verifyingContract'])
 
         # create intermediate authority certificate
@@ -286,11 +286,11 @@ class TestEip712CertificateChain(TestCase):
 
         cert2_sig = yield trustroot_eth_key.sign_typed_data(cert2_data, binary=False)
 
-        cert2_data['message']['verifyingContract'] = self._w3.toChecksumAddress(
+        cert2_data['message']['verifyingContract'] = self._w3.to_checksum_address(
             cert2_data['message']['verifyingContract'])
-        cert2_data['message']['issuer'] = self._w3.toChecksumAddress(cert2_data['message']['issuer'])
-        cert2_data['message']['subject'] = self._w3.toChecksumAddress(cert2_data['message']['subject'])
-        cert2_data['message']['realm'] = self._w3.toChecksumAddress(cert2_data['message']['realm'])
+        cert2_data['message']['issuer'] = self._w3.to_checksum_address(cert2_data['message']['issuer'])
+        cert2_data['message']['subject'] = self._w3.to_checksum_address(cert2_data['message']['subject'])
+        cert2_data['message']['realm'] = self._w3.to_checksum_address(cert2_data['message']['realm'])
 
         # create root authority certificate
         #
@@ -302,11 +302,11 @@ class TestEip712CertificateChain(TestCase):
 
         cert3_sig = yield trustroot_eth_key.sign_typed_data(cert3_data, binary=False)
 
-        cert3_data['message']['verifyingContract'] = self._w3.toChecksumAddress(
+        cert3_data['message']['verifyingContract'] = self._w3.to_checksum_address(
             cert3_data['message']['verifyingContract'])
-        cert3_data['message']['issuer'] = self._w3.toChecksumAddress(cert3_data['message']['issuer'])
-        cert3_data['message']['subject'] = self._w3.toChecksumAddress(cert3_data['message']['subject'])
-        cert3_data['message']['realm'] = self._w3.toChecksumAddress(cert3_data['message']['realm'])
+        cert3_data['message']['issuer'] = self._w3.to_checksum_address(cert3_data['message']['issuer'])
+        cert3_data['message']['subject'] = self._w3.to_checksum_address(cert3_data['message']['subject'])
+        cert3_data['message']['realm'] = self._w3.to_checksum_address(cert3_data['message']['realm'])
 
         # create certificates chain
         #

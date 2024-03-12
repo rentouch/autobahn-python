@@ -170,6 +170,6 @@ def unpack_ethadr(packed_value: Union[List[int], Dict[str, int]], return_str=Fal
         assert False, 'should not arrive here'
 
     if return_str:
-        return web3.Web3.toChecksumAddress('0x' + b2a_hex(b''.join(w)).decode())
+        return web3.Web3.to_checksum_address('0x' + b2a_hex(b''.join(w)).decode())
     else:
         return b''.join(w)

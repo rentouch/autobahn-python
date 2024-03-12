@@ -470,7 +470,7 @@ class EthereumAddress(click.ParamType):
 
     def convert(self, value, param, ctx):
         try:
-            value = web3.Web3.toChecksumAddress(value)
+            value = web3.Web3.to_checksum_address(value)
             adr = binascii.a2b_hex(value[2:])
             if len(value) != 20:
                 raise ValueError('Ethereum addres must be 20 bytes (160 bit), but was {} bytes'.format(len(adr)))

@@ -137,7 +137,7 @@ class Client(ApplicationSession):
             len(profile.ethkey))
         self._ethkey_raw = profile.ethkey
         self._ethkey = eth_keys.keys.PrivateKey(self._ethkey_raw)
-        self._ethadr = web3.Web3.toChecksumAddress(self._ethkey.public_key.to_canonical_address())
+        self._ethadr = web3.Web3.to_checksum_address(self._ethkey.public_key.to_canonical_address())
         self._ethadr_raw = binascii.a2b_hex(self._ethadr[2:])
         self.log.info('ETH keys with address {ethadr} loaded', ethadr=self._ethadr)
 
@@ -326,7 +326,7 @@ class Client(ApplicationSession):
         if is_member:
             member_data = await self.call('xbr.network.get_member_by_wallet', member_adr)
 
-            member_data['address'] = web3.Web3.toChecksumAddress(member_data['address'])
+            member_data['address'] = web3.Web3.to_checksum_address(member_data['address'])
             member_data['oid'] = uuid.UUID(bytes=member_data['oid'])
             member_data['balance']['eth'] = web3.Web3.fromWei(unpack_uint256(member_data['balance']['eth']), 'ether')
             member_data['balance']['xbr'] = web3.Web3.fromWei(unpack_uint256(member_data['balance']['xbr']), 'ether')
@@ -361,7 +361,7 @@ class Client(ApplicationSession):
         if is_member:
             actor = await self.call('xbr.network.get_member_by_wallet', actor_adr)
             actor_oid = uuid.UUID(bytes=actor['oid'])
-            actor_adr = web3.Web3.toChecksumAddress(actor['address'])
+            actor_adr = web3.Web3.to_checksum_address(actor['address'])
             actor_level = actor['level']
             actor_balance_eth = web3.Web3.fromWei(unpack_uint256(actor['balance']['eth']), 'ether')
             actor_balance_xbr = web3.Web3.fromWei(unpack_uint256(actor['balance']['xbr']), 'ether')
@@ -382,7 +382,7 @@ class Client(ApplicationSession):
                     # market = await self.call('xbr.network.get_market', market_oid)
                     result = await self.call('xbr.network.get_actor_in_market', market_oid, actor['address'])
                     for actor in result:
-                        actor['actor'] = web3.Web3.toChecksumAddress(actor['actor'])
+                        actor['actor'] = web3.Web3.to_checksum_address(actor['actor'])
                         actor['timestamp'] = np.datetime64(actor['timestamp'], 'ns')
                         actor['joined'] = unpack_uint256(actor['joined']) if actor['joined'] else None
                         actor['market'] = uuid.UUID(bytes=actor['market'])
@@ -643,12 +643,12 @@ class Client(ApplicationSession):
             if market['owner'] == member_adr:
                 self.log.info('You are market owner (operator)!')
             else:
-                self.log.info('Marked is owned by {owner}', owner=hlid(web3.Web3.toChecksumAddress(market['owner'])))
+                self.log.info('Marked is owned by {owner}', owner=hlid(web3.Web3.to_checksum_address(market['owner'])))
 
             market['market'] = uuid.UUID(bytes=market['market'])
-            market['owner'] = web3.Web3.toChecksumAddress(market['owner'])
-            market['maker'] = web3.Web3.toChecksumAddress(market['maker'])
-            market['coin'] = web3.Web3.toChecksumAddress(market['coin'])
+            market['owner'] = web3.Web3.to_checksum_address(market['owner'])
+            market['maker'] = web3.Web3.to_checksum_address(market['maker'])
+            market['coin'] = web3.Web3.to_checksum_address(market['coin'])
             market['timestamp'] = np.datetime64(market['timestamp'], 'ns')
 
             self.log.info('Market {market_oid} information:\n\n{market}\n',

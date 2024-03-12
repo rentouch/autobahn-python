@@ -120,7 +120,7 @@ class SimpleBuyer(object):
 
         # buyer delegate ethereum account canonical checksummed address
         # FIXME
-        # self._caddr = web3.Web3.toChecksumAddress(self._addr)
+        # self._caddr = web3.Web3.to_checksum_address(self._addr)
         self._caddr = None
 
         # ephemeral data consumer key

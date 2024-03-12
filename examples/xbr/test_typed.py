@@ -45,7 +45,7 @@ def main(accounts):
     print('Account address: {}'.format(b2a_hex(addr).decode()))
 
     # get the canonical address of the account
-    caddr = web3.Web3.toChecksumAddress(addr)
+    caddr = web3.Web3.to_checksum_address(addr)
     print('Account canonical address: {}'.format(caddr))
 
     # step-wise computation of signature
